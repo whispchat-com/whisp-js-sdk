@@ -1,0 +1,53 @@
+{
+  "name": "whisp-sdk",
+  "version": "0.1.0",
+  "description": "JavaScript/TypeScript SDK for the Whisp Chat API",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
+    "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "whisp",
+    "chat",
+    "sdk",
+    "websocket",
+    "stomp",
+    "real-time",
+    "messaging"
+  ],
+  "author": "Whisp",
+  "license": "MIT",
+  "dependencies": {
+    "@stomp/stompjs": "^7.0.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0"
+  },
+  "peerDependencies": {
+    "ws": "^8.0.0"
+  },
+  "peerDependenciesMeta": {
+    "ws": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
