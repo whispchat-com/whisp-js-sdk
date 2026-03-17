@@ -251,7 +251,7 @@ export type WhispEvent =
 
 // ─── WebSocket: Event Map for .on() ─────────────────────────────────────────
 
-export interface RealtimeEventMap {
+export type RealtimeEventMap = {
   message: SendMsgEvent;
   messageEdited: EditMsgEvent;
   messageDeleted: DeleteMsgEvent;
