@@ -268,7 +268,7 @@ export class WhispClient {
   // ─── Internal ────────────────────────────────────────────────────────────
 
   private async getTicket(): Promise<string> {
-    const { body } = await this.http.request<TicketResponse>('GET', '/api/user/getTicket');
+    const { body } = await this.http.request<TicketResponse>('GET', '/api/auth/getTicket');
     return body.ticket;
   }
 }
