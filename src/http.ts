@@ -70,8 +70,8 @@ export class HttpClient {
 
     if (options?.extractJwtFromHeader) {
       const authHeader = res.headers.get('Authorization');
-      if (authHeader?.startsWith('Bearer ')) {
-        result.jwt = authHeader.slice(7);
+      if (authHeader) {
+        result.jwt = authHeader;
       }
     }
 
