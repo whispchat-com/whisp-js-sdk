@@ -165,8 +165,8 @@ export class HttpClient {
 
     if (options?.extractJwtFromHeader) {
       const authHeader = res.headers.get('Authorization');
-      if (authHeader?.startsWith('Bearer ')) {
-        result.jwt = authHeader.slice(7);
+      if (authHeader) {
+        result.jwt = authHeader.startsWith('Bearer ') ? authHeader.slice(7) : authHeader;
       }
     }
 
@@ -209,9 +209,9 @@ export class HttpClient {
       if (!res.ok) return false;
 
       const authHeader = res.headers.get('Authorization');
-      if (!authHeader?.startsWith('Bearer ')) return false;
+      if (!authHeader) return false;
 
-      const newJwt = authHeader.slice(7);
+      const newJwt = authHeader.startsWith('Bearer ') ? authHeader.slice(7) : authHeader;
       this.setAuth({ ...auth, jwt: newJwt });
       return true;
     } catch {
